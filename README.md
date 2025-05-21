@@ -2,7 +2,7 @@
 
 Simple python game based on the classic Asteroids.
 
-![demo](./assets/asteroids_demo.gif)
+![demo](./assets/demo.gif)
 
 # Usage
 

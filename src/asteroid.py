@@ -9,10 +9,10 @@ from src.constants import ASTEROID_MIN_RADIUS
 class Asteroid(CircleShape):
     containers = []
 
-    def __init__(self, x, y, radius):
+    def __init__(self, x: int, y: int, radius: float):
         super().__init__(x, y, radius)
 
-    def draw(self, screen):
+    def draw(self, screen: pygame.Surface):
         pygame.draw.circle(
             surface=screen,
             color=(255, 255, 255),
@@ -34,5 +34,5 @@ class Asteroid(CircleShape):
         first_asteroid.velocity = self.velocity.rotate(angle) * 1.2
         second_asteroid.velocity = self.velocity.rotate(-angle) * 1.2
 
-    def update(self, dt):
+    def update(self, dt: float):
         self.position += self.velocity * dt

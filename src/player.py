@@ -14,7 +14,7 @@ from src.shot import Shot
 class Player(CircleShape):
     containers = ()
 
-    def __init__(self, x, y):
+    def __init__(self, x: int, y: int):
         super().__init__(x, y, radius=PLAYER_RADIUS)
         self.rotation = 0
         self.timer = 0
@@ -27,12 +27,12 @@ class Player(CircleShape):
         c = self.position - forward * self.radius + right
         return [a, b, c]
 
-    def draw(self, screen):
+    def draw(self, screen: pygame.Surface):
         pygame.draw.polygon(
             surface=screen, color=(255, 255, 255), points=self.triangle(), width=2
         )
 
-    def rotate(self, dt):
+    def rotate(self, dt: float):
         self.rotation += PLAYER_TURN_SPEED * dt
 
     def move(self, dt):
@@ -42,12 +42,12 @@ class Player(CircleShape):
     def shoot(self):
         if self.timer <= 0:
             shot = Shot(self.position.x, self.position.y)
-            velocity = pygame.Vector2(0, 1)
-            shot.velocity = velocity.rotate(self.rotation)
-            shot.velocity *= PLAYER_SHOOT_SPEED
+            shot.velocity = (
+                pygame.Vector2(0, 1).rotate(self.rotation) * PLAYER_SHOOT_SPEED
+            )
             self.timer = PLAYER_SHOOT_COOLDOWN
 
-    def update(self, dt):
+    def update(self, dt: float):
         keys = pygame.key.get_pressed()
 
         if keys[pygame.K_a]:

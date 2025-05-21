@@ -4,10 +4,7 @@ import pygame
 
 from src.asteroid import Asteroid
 from src.asteroidfield import AsteroidField
-from src.constants import (
-    SCREEN_HEIGHT,
-    SCREEN_WIDTH
-)
+from src.constants import SCREEN_HEIGHT, SCREEN_WIDTH
 from src.player import Player
 from src.shot import Shot
 

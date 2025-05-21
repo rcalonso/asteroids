@@ -4,7 +4,10 @@ import pygame
 
 from src.asteroid import Asteroid
 from src.asteroidfield import AsteroidField
-from src.constants import *
+from src.constants import (
+    SCREEN_HEIGHT,
+    SCREEN_WIDTH
+)
 from src.player import Player
 from src.shot import Shot
 
@@ -30,7 +33,7 @@ def main():
     Asteroid.containers = (asteroids, updatable, drawable)
     AsteroidField.containers = updatable
 
-    asteroid_field = AsteroidField()
+    AsteroidField()
     player = Player(x=SCREEN_WIDTH / 2, y=SCREEN_HEIGHT / 2)
 
     while True:
